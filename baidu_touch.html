@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+    <script src="https://cdn.bootcss.com/touchjs/0.2.14/touch.js"></script>
+    <!-- <script src="./js/zepto.js"></script> -->
+    <!-- <script src="./js/touch-0.2.14.js"></script> -->
+    <style>
+        *{
+            margin: 0;padding: 0
+        }
+        h3{
+            width: 150px;text-align: center;
+            margin: 10px auto;
+        }
+        div{
+            width:100px;height:100px;background: #ccc;margin:10px auto;text-align: center;line-height: 100px;
+            border-radius: 4px;
+            transition: .5s ease all;
+            font-size: 22px;
+        }
+        div:nth-child(5){
+            background: pink;
+            font-size: 48px;
+        }  
+    </style>
+    <script>
+
+        $(function(){
+
+        var box = document.querySelectorAll('div')
+
+        touch.on($("div:nth-child(2)"),'swipeleft',function(ev){
+            // this==原生
+            ev.preventDefault();
+            $(this).css({
+                background:'pink',
+                fontSize:48
+            })
+            $(this).html("小")
+        })
+
+        touch.on(box[1],'swiperight',function(ev){
+            // this==原生
+            ev.preventDefault();
+            $(this).css({
+                background:'pink',
+                fontSize:48
+            })
+            $(this).html("仙")
+        })
+
+        touch.on(box[2],'swipedown',function(ev){
+            // this==原生
+            ev.preventDefault();
+            $(this).css({
+                background:'pink',
+                fontSize:48
+            })
+            $(this).html("女")
+        })
+
+
+        })
+
+
+
+    </script>
+</head>
+<body>
+    <h3>你造吗？其实你是</h3>
+    <div>左滑←</div>
+    <div>右划→</div>
+    <div>下划↓</div>
+    <div>!</div>
+</body>
+</html>
